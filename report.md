@@ -27,7 +27,7 @@ To determine how many proposals are made, **on average**, during a run of **doct
 
 ### Result
 
-![Average Number of Proposals vs n](avg_proposals_vs_n.png)
+![Average Number of Proposals vs n](assets/avg_proposals_vs_n.png)
 
 The average number of proposals grows sub-quadratically and appears to follow a trend slightly steeper than linear, consistent with known theoretical bounds.
 
@@ -46,7 +46,7 @@ To understand the **distribution** of the number of proposals made during multip
 
 ### Result
 
-![Proposal Distribution Histogram (Fixed n)](proposal_distribution.png)
+![Proposal Distribution Histogram (Fixed n)](assets/proposal_distribution.png)
 
 The histogram shows a concentrated distribution of proposal counts with some variance. The distribution is skewed slightly right, showing the possibility of higher proposal counts in some random instances.
 
@@ -67,7 +67,7 @@ To evaluate the **quality of matches** from both the doctor’s and hospital’s
 
 ### Result
 
-![Average Rank of Partners vs n](avg_rank_vs_n.png)
+![Average Rank of Partners vs n](assets/avg_rank_vs_n.png)
 
 - The doctor’s average rank scales as **log(n)** — confirming Pittel’s Theorem 2.
 - The hospital’s average rank scales approximately as **n / log(n)** — again matching the theory.
@@ -89,9 +89,9 @@ To analyze how many agents (doctors and hospitals) are matched to partners in th
 
 ### Result
 
-![Doctor Rank Distribution Histogram](doctor_rank_distribution_Basic.png)
+![Doctor Rank Distribution Histogram](assets/doctor_rank_distribution_Basic.png)
 
-![Hospital Rank Distribution Histogram](hospital_rank_distribution.png)
+![Hospital Rank Distribution Histogram](assets/hospital_rank_distribution.png)
 
 The histogram for doctors is skewed towards top preferences, reflecting their advantage. Hospitals, being on the receiving end, exhibit a wider spread in partner quality.
 
@@ -131,7 +131,7 @@ We apply the doctor-proposing DA algorithm under this new preference model and a
 
 ## Part 1: Average Number of Proposals vs n
 
-![](./avg_proposals_vs_n_Popularity.png)
+![](assets/avg_proposals_vs_n_Popularity.png)
 
 **Observation:**  
 The number of proposals increases non-linearly with `n`, but more sharply than in the uniform model. This suggests that **popularity-weighted preferences introduce more proposal rounds**, likely due to competition for highly popular hospitals.
@@ -141,7 +141,7 @@ The number of proposals increases non-linearly with `n`, but more sharply than i
 
 ## Part 2: Proposal Distribution for Fixed n
 
-![](./proposal_distribution_Popularity.png)
+![](assets/proposal_distribution_Popularity.png)
 
 **Observation:**  
 The distribution is bell-shaped (roughly normal), centered around a higher mean than the uniform model. This reinforces the idea that **more iterations are needed when preferences are skewed by popularity**.
@@ -151,7 +151,7 @@ The distribution is bell-shaped (roughly normal), centered around a higher mean 
 
 ## Part 3: Average Rank of Partners vs n
 
-![](./avg_rank_vs_n_Popularity.png)
+![](assets/avg_rank_vs_n_Popularity.png)
 
 **Observation:**
 - The doctor's average rank increases linearly with `n`, diverging from the logarithmic behavior seen in the uniform model.
@@ -165,14 +165,14 @@ The distribution is bell-shaped (roughly normal), centered around a higher mean 
 
 ### Doctor Rank Distribution
 
-![](./doctor_rank_distribution_Popularity.png)
+![](assets/doctor_rank_distribution_Popularity.png)
 
 **Observation:**  
 Doctors are more likely to match with top-percentile hospitals (lower rank values), but the curve is heavier-tailed than in the uniform case. This suggests that **competition for popular hospitals results in a wider spread of match quality** among doctors.
 
 ### Hospital Rank Distribution
 
-![](./hospital_rank_distribution_Popularity.png)
+![](assets/hospital_rank_distribution_Popularity.png)
 
 **Observation:**  
 The distribution is heavily skewed toward top-percentile doctors, with many hospitals matched to highly ranked individuals. This implies **hospitals benefit more in this model**, perhaps because they are more likely to be highly ranked by popular doctors due to shared bias.
